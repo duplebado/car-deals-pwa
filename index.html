@@ -3,6 +3,74 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="movie-card.css" />
+    <script defer src="./js/app.js" type="module"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div>Movies</div>
+      <button onclick="location.reload()">Refresh</button>
+    </header>
+
+    <main>
+      <div id="first-load" class="center">
+        <img src="logo.svg" alt="" width="300" height="300" />
+        <p>Loading movies.....</p>
+      </div>
+      <div class="mdl-grid">
+        <!-- Dynamic Data Goes Here  -->
+      </div>
+      <button class="center">Show More</button>
+    </main>
+
+    <script id="movie-card" type="text/template">
+      <div class="container" onclick="pageEvents.loadMoviePage('${id}')">
+        <div class="cellphone-container">
+          <div class="movie">
+            <div
+              class="movie-img"
+              style="
+                background-image: url(${image})
+              "
+            ></div>
+            <div class="text-movie-cont">
+              <div class="mr-grid">
+                <div class="col1">
+                  <h2>${fullTitle}</h2>
+                  <ul class="movie-gen">
+                    <li>${contentRating} /</li>
+                    <li>${runtimeStr} /</li>
+                    <li>${genres}</li>
+                  </ul>
+                  <ul class="movie-gen">
+                    <li>${releaseState}</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mr-grid summary-row">
+                <div class="col2">
+                  <h5>PLOT</h5>
+                </div>
+              </div>
+              <div class="mr-grid">
+                <div class="col1">
+                  <p class="movie-description">
+                  ${plot}
+                  </p>
+                </div>
+              </div>
+              <div class="mr-grid actors-row">
+                <div class="col1">
+                  <p class="movie-actors">
+                   ${stars}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+  </body>
 </html>
