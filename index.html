@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="stylesheet" type="text/css" href="movie-card.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/gh/bstavroulakis/progressive-web-apps/resources/localforage.js"
+    ></script>
     <script defer src="./js/app.js" type="module"></script>
   </head>
   <body>
@@ -21,10 +25,12 @@
       <div class="mdl-grid">
         <!-- Dynamic Data Goes Here  -->
       </div>
-      <button class="center">Show More</button>
+      <button class="center" onclick="pageEvents.loadMovies()">
+        Show More
+      </button>
     </main>
 
-    <script id="movie-card" type="text/template">
+    <!-- <script id="movie-card" type="text/template">
       <div class="container" onclick="pageEvents.loadMoviePage('${id}')">
         <div class="cellphone-container">
           <div class="movie">
@@ -65,6 +71,31 @@
                   <p class="movie-actors">
                    ${stars}
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script> -->
+
+    <script id="movie-card" type="text/template">
+      <div class="container" onclick="pageEvents.loadMoviePage('${imdbID}')">
+        <div class="cellphone-container">
+          <div class="movie">
+            <div
+              class="movie-img"
+              style="
+                background-image: url(${Poster})
+              "
+            ></div>
+            <div class="text-movie-cont">
+              <div class="mr-grid">
+                <div class="col1">
+                  <h2>${Title}</h2>
+                  <ul class="movie-gen">
+                    <li>${Year}</li>
+                  </ul>
                 </div>
               </div>
             </div>

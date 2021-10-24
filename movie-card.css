@@ -3,7 +3,7 @@
 }
 .cellphone-container {
   width: 375px;
-  height: 595px;
+  height: 460px;
   background-color: #1e1b26;
   margin: 40px auto 0 auto;
   border-radius: 4px;
@@ -14,7 +14,7 @@
   height: 380px;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   z-index: 111 !important;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
@@ -52,7 +52,7 @@
   /* background-size: cover; */
   z-index: 1 !important;
   width: 375px;
-  height: 595px;
+  height: 460px;
   display: block;
   border-radius: 4px;
 }

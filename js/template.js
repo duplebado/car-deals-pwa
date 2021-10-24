@@ -6,6 +6,6 @@ const generateMovieCard = (movie) => {
 export const appendMovies = (movies) => {
   document.getElementById("first-load").innerHTML = "";
   if (!movies) return;
-  const cardHTML = movies.map((m) => generateMovieCard(m));
-  document.querySelector(".mdl-grid").innerHTML += cardHTML.join("");
+  const cardHTML = movies.map((m) => generateMovieCard(m)).join("");
+  document.querySelector(".mdl-grid").innerHTML += cardHTML;
 };
