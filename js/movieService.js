@@ -12,7 +12,28 @@ export const loadMoviesRequest = async () => {
 };
 
 export const loadMovies = async () => {
-  await loadMoviesRequest();
+  document.getElementById("connection-status").innerHTML = await fetchPromise();
   const movies = await getMovies();
   appendMovies(movies);
+};
+
+const fetchPromise = () => {
+  const promiseRequest = new Promise(async (resolve) => {
+    try {
+      await loadMoviesRequest();
+    } catch (err) {
+      resolve("No connection, showing offline results");
+    }
+    resolve("This connection is OK, showing results");
+  });
+
+  const promiseHanging = new Promise((resolve) => {
+    setTimeout(
+      resolve,
+      3000,
+      "The connection is hanging, showing offline results"
+    );
+  });
+
+  return Promise.race([promiseRequest, promiseHanging]);
 };
